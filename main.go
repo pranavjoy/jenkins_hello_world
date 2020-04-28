@@ -1,4 +1,4 @@
-package jenkins_hello_world
+package main
 
 import (
 	"encoding/json"
