@@ -8,22 +8,15 @@ pipeline {
    }
 
    stages {
-      stage('Hello') {
-         steps {
-             script {
-                 output = sh label: '', returnStdout: true, script: 'echo "Hello, World"'
-             }
-         }
-      }
-      stage('Step two') {
-         steps {
-            echo output
-         }
-      }
       stage('Build') {
-               steps {
-                  sh 'go build'
-              }
+          steps {
+              sh 'go build'
+          }
+      }
+      stage('Publish') {
+          steps {
+              archiveArtifacts 'example1'
+          }
       }
    }
 }
