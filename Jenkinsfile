@@ -1,5 +1,3 @@
-def output
-
 pipeline {
    agent any
 
