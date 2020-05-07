@@ -6,7 +6,7 @@ pipeline {
    }
 
    stages {
-      stage('Test') {
+      stage('Unit Test') {
           steps {
               sh 'go test'
           }
@@ -18,10 +18,10 @@ pipeline {
           }
       }
       
-      stage('Publish artifact') {
-         steps {
-           archiveArtifacts 'example1'
-         }
+      stage('Deliver') {
+          steps {
+                 ansiblePlaybook credentialsId: 'toobox-vagrant-key', inventory: 'inventories/${params.TARGET_ENV}/hosts.ini', playbook: 'playbook.yml'
+          }
       }
    }
 }
