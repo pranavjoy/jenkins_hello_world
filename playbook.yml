@@ -3,7 +3,7 @@
     - name: service template
       become: yes # sudo
       template:
-        src: example.service.j2
+        src: /templates/example.service.j2
         dest: /etc/systemd/system/example.service
 
     - name: copy artifact
