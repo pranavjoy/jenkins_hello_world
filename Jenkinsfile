@@ -20,7 +20,7 @@ pipeline {
       
       stage('Deliver') {
           steps {
-                 ansiblePlaybook credentialsId: 'toobox-vagrant-key', inventory: 'inventories/${params.ENV}/hosts.ini', playbook: 'playbook.yml'
+                 ansiblePlaybook credentialsId: 'toobox-vagrant-key', inventory: 'inventories/${params.TARGET_ENV}/hosts.ini', playbook: 'playbook.yml'
           }
       }
    }
