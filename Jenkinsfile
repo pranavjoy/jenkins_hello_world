@@ -20,13 +20,14 @@ pipeline {
       
       stage('Deliver') {
           steps {
-                 ansiblePlaybook credentialsId: 'toobox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml'
+                 ansiblePlaybook disableHostKeyChecking: true, credentialsId: 'toobox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml'
           }
       }
 
       stage('Integration Test') {
           steps {
              sh 'docker run -t postman/newman:latest run "https://www.postman.com/collections/f813962ffadc9d4b0f03"'
+          }
       }
    }
 }
