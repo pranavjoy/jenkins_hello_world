@@ -26,7 +26,7 @@ pipeline {
 
       stage('Integration Test') {
           steps {
-             sh 'docker run -t postman/newman:latest run "https://www.getpostman.com/collections/2f072fca0456a53ff5fd"'
+             sh 'docker run -t postman/newman:latest run "https://www.getpostman.com/collections/0fb9d09f41531188decc"'
 
       }
    }
