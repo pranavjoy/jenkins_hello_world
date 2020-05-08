@@ -26,10 +26,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}",
+					"raw": "http://10.10.50.3:8888",
+					"protocol": "http",
 					"host": [
-						"{{baseURL}}"
-					]
+						"10",
+						"10",
+						"50",
+						"3"
+					],
+					"port": "8888"
 				}
 			},
 			"response": []

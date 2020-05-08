@@ -23,6 +23,12 @@ pipeline {
                  ansiblePlaybook credentialsId: 'toobox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml'
           }
       }
+
+      stage('Integration Test') {
+          steps {
+             sh 'docker run -t postman/newman:latest run "https://www.getpostman.com/collections/2f072fca0456a53ff5fd"'
+
+      }
    }
 }
 
