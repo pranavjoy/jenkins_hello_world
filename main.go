@@ -29,7 +29,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	fmt.Println("Server started")
 	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":8888", nil))
-	fmt.Println("Starting monitoring")
 	http.Handle("/metrics", promhttp.Handler())
+	fmt.Println("Starting monitoring")
+	log.Fatal(http.ListenAndServe(":8888", nil))
 }
